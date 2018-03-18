@@ -22,11 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickHandler(View view) {
 
-        Bundle arguments = new Bundle();
-        arguments.putString (SimpleFragment.MESSAGE_KEY, "Passed as an argument");
 
-        SimpleFragment fragment = new SimpleFragment ();
-        fragment.setArguments (arguments);
+        SimpleFragment fragment = SimpleFragment.newInstance ("Passed to factory method");
         getSupportFragmentManager ()
                 .beginTransaction ()
                 .addToBackStack (null) //To Remove using Back Button
