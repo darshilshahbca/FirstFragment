@@ -9,32 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        class="com.example.x_men.firstfragment.SimpleFragment"
+    <TextView
+        android:id="@+id/text_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+        android:text="Hello World!"
+        android:textSize="24sp" />
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Measure"
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="clickHandler"
-        android:text="Add Fragment" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:onClick="removeClickHandler"
-        android:text="Remove" />
-
+        android:layout_centerHorizontal="true"
+        android:onClick="onMeasureBtnClick"/>
 </RelativeLayout>
