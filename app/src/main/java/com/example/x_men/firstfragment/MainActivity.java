@@ -7,7 +7,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SimpleFragment fragment;
+//    private SimpleFragment fragment;
+    public static final String FRAGMENT_TAG = "fragment_tag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +16,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
 
-        fragment = new SimpleFragment ();
+//        fragment = new SimpleFragment ();
 
     }
 
     public void clickHandler(View view) {
+
+        SimpleFragment fragment = new SimpleFragment ();
+
         getSupportFragmentManager ()
                 .beginTransaction ()
-                .add(R.id.fragment_container, fragment)
+                .addToBackStack (null) //To Remove using Back Button
+                .add(R.id.fragment_container, fragment, FRAGMENT_TAG)
                 .commit ();
+    }
+
+    public void removeClickHandler(View view) {
+
+//        android.support.v4.app.Fragment fragment = getSupportFragmentManager ().findFragmentById (R.id.fragment_container);
+        android.support.v4.app.Fragment fragment = getSupportFragmentManager ().findFragmentByTag (FRAGMENT_TAG);
+        if (fragment != null) {
+            getSupportFragmentManager ()
+                    .beginTransaction ()
+                    .remove (fragment)
+                    .commit ();
+        }
     }
 }
